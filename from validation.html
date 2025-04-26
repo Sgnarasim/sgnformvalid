@@ -6,77 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Validation</title>
   <link rel="stylesheet" href="success.html">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #E0E0E3;
-    }
-
-    .form-container {
-      background-color: #F9D2A7;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(145, 22, 22, 0.2);
-      animation: slide-in 1.5s ease-out;
-      width: 300px;
-      background-image: url(20211224_135757.jpg);
-    }
-
-    @keyframes slide-in {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h2 {
-      text-align: center;
-      color: #ee8a2c;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="number"],
-    input[type="password"],
-    input[type="confirm password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-    }
-
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: #5C44BF;
-      color: white;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #1E1E63;
-    }
-
-    .error {
-      color: red;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-  </style>
+ 
 </head>
 
 <body>
@@ -102,51 +32,6 @@
     </form>
   </div>
 
-  <script>
-    const form = document.getElementById('signupForm');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      let isValid = true;
-
-      // Reset errors
-      nameError.textContent = '';
-      emailError.textContent = '';
-      passwordError.textContent = '';
-
-      if (nameInput.value.trim() === '') {
-        nameError.textContent = 'Name is required';
-        isValid = false;
-      }
-
-      if (emailInput.value.trim() === '') {
-        emailError.textContent = 'Email is required';
-        isValid = false;
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-        emailError.textContent = 'Invalid email format';
-        isValid = false;
-      }
-
-      if (passwordInput.value.trim() === '') {
-        passwordError.textContent = 'Password is required';
-        isValid = false;
-      } else if (passwordInput.value.length < 6) {
-        passwordError.textContent = 'Password must be at least 6 characters';
-        isValid = false;
-      }
-
-      if (isValid) {
-        alert('Form submitted successfully!');
-        form.reset();
-      }
-    });
-  </script>
 </body>
 
 </html>
